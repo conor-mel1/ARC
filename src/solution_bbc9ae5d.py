@@ -20,17 +20,21 @@ initial_nonzero_elements = []
 for x in array:
     if x!=0:
         initial_nonzero_elements.append(x)
-print(initial_nonzero_elements)
+print("Initial non-zero elements = ", initial_nonzero_elements)
 
 #Way in which the patterned piece of each element of the output array is calculated
-patterened_piece = []
+patterned_piece = []
 for i in range(len(array)):
     if array[i]==0:
         new_array_input = array[i] + array[i-1]
-        patterened_piece.append(new_array_input)
+        patterned_piece.append(new_array_input)
+print("Patterned Piece = ", patterned_piece)
 
-print("Patterened_Array", patterened_piece )
+#Combined array. Correct output grid element
+final_array = initial_nonzero_elements + patterned_piece
     
+print("Final Combined Array",final_array)
+
     
 
 
