@@ -14,26 +14,27 @@ for x in range(OutputGrid_ArrayLength):
     Output_GridArray.append(Output_GridRow)
 print("Output Grid", Output_GridArray)
 
-#This piece calculates the first n nonzero elements of an array
-array = [1,1,1,0,0,0]
-initial_nonzero_elements = []
-for x in array:
-    if x!=0:
-        initial_nonzero_elements.append(x)
-print("Initial non-zero elements = ", initial_nonzero_elements)
 
-#Way in which the patterned piece of each element of the output array is calculated
-patterned_piece = []
-for i in range(len(array)):
-    if array[i]==0:
-        new_array_input = array[i] + array[i-1]
-        patterned_piece.append(new_array_input)
-print("Patterned Piece = ", patterned_piece)
+def pattern(array):
+    #This piece calculates the first n nonzero elements of an array
+    initial_nonzero_elements = []
+    for x in array:
+        if x!=0:
+            initial_nonzero_elements.append(x)
 
-#Combined array. Correct output grid element
-final_array = initial_nonzero_elements + patterned_piece
+    #Way in which the patterned piece of each element of the output array is calculated
+    patterned_piece = []
+    for i in range(len(array)):
+        if array[i]==0:
+            new_array_input = array[i] + array[i-1]
+            patterned_piece.append(new_array_input)
+
+    #Combined array. Correct output grid element
+    final_array = initial_nonzero_elements + patterned_piece
+    print("Final Patterned Array", final_array)
+    return(final_array)
     
-print("Final Combined Array",final_array)
+pattern([1,1,1,0,0,0])
 
     
 
