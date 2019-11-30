@@ -1,3 +1,10 @@
+This repository provides hand-coded solutions in Python to three training data cases from the Abstraction and Reasoning Corpus (ARC) repository by fchollet.
+These solutions may be found in the src directory in this repository.
+
+More information on the ARC repository can be found below.
+
+
+
 # The Abstraction and Reasoning Corpus (ARC)
 
 This repository contains the ARC task data, as well as a browser-based interface for humans to try their hand at solving the tasks manually.
