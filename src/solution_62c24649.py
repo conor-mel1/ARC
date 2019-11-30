@@ -20,4 +20,15 @@ patterned_string = [] #Defining desired output grid
 for x in input_Json:
     y = x + x[::-1] #Create new variable y, which adds the reverse of each element of input_Json to itself 
     patterned_string.append(y) #Appending each y to patterned_string
-print(patterned_string)
+#print(patterned_string)
+
+#Mapping to positions in Output Grid
+for i in range(len(Output_GridArray)):
+    if (i==0 or i==5):
+        Output_GridArray[i] = patterned_string[0]
+    elif (i==1 or i==4):
+        Output_GridArray[i] = patterned_string[1]
+    elif (i==2 or i==3):
+        Output_GridArray[i] = patterned_string[2]
+        
+print(Output_GridArray)
