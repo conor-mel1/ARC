@@ -32,4 +32,10 @@ def solve(input_Json):
     print(Output_Grid)
     return(Output_Grid)
 
+#Training Data
+solve([[3, 3, 3], [0, 2, 2], [1, 1, 0]])
+solve([[3, 3, 1], [1, 3, 0], [0, 2, 2]])
 solve([[2, 1, 0], [0, 2, 3], [0, 3, 0]])
+
+#Testing Data
+solve([[1, 1, 0], [0, 3, 2], [3, 3, 0]])
