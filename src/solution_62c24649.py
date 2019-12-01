@@ -14,19 +14,19 @@ def solve(Input_Grid):
         Output_Grid.append(Output_GridRow)
 
     #This piece applies the transfomation pattern to Input_Grid
-    patterned_string = [] #Defining desired patterned grid
+    patterned_elements = [] #Defining desired patterned grid
     for x in Input_Grid:
         y = x + x[::-1] #Create new variable y, which adds the reverse of each element of Input_Grid to itself 
-        patterned_string.append(y) #Appending each y to patterned_string
+        patterned_elements.append(y) #Appending each y to patterned_string
 
     #Mapping to positions in Output Grid
     for i in range(len(Output_Grid)):
         if (i==0 or i==5):
-            Output_Grid[i] = patterned_string[0]
+            Output_Grid[i] = patterned_elements[0]
         elif (i==1 or i==4):
-            Output_Grid[i] = patterned_string[1]
+            Output_Grid[i] = patterned_elements[1]
         elif (i==2 or i==3):
-            Output_Grid[i] = patterned_string[2]
+            Output_Grid[i] = patterned_elements[2]
         
     for grid_row in Output_Grid:
         print("{0}".format(" ".join(str(x) for x in grid_row))) 
