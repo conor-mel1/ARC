@@ -1,22 +1,36 @@
 '''
-Created on 30 Nov 2019
-
 @author: conor
 '''
+import json
+import sys
 
-
-def solve(input_Json):
-    output_array = [] #Defining the desired output
-    for grid_row in input_Json:
+def solve(Input_Grid):
+    Output_Grid = [] #Defining the desired output
+    for grid_row in Input_Grid:
         grid_row += grid_row #Adding each element on to itslef
-        output_array.append(grid_row) #Appending to the output_array 
-    print("Output Grid = ", output_array)
-    return(output_array)
+        Output_Grid.append(grid_row) #Appending to the output_array 
+    
+    for s in Output_Grid:
+        print("{0}".format(" ".join(str(x) for x in s)))
+    return(Output_Grid) #Output of solve is also a Python list of lists
 
-#Training Data
-solve([[0,5,0],[5,5,2],[0,0,0]])
-solve([[3, 0, 0], [2, 3, 0], [2, 1, 8], [0, 1, 0]])
-solve([[5, 2, 3, 0], [2, 5, 3, 0], [5, 2, 8, 8], [0, 0, 6, 0]])
-
-#Testing Data
-solve([[4, 0, 0, 0], [4, 5, 0, 0], [0, 5, 6, 0], [6, 6, 1, 0], [0, 0, 0, 1]])
+#Run the program by typing python solution_a416b8f3.py  \path to Json file
+if len(sys.argv) != 2:
+    print("usage:python solution_a416b8f3.py <input Json file>")
+    sys.exit(0)
+else:
+    input_file = sys.argv[1]
+    print("input_file", input_file)
+    
+with open(input_file) as json_file:
+    json_data = json.load(json_file)  
+    
+for i in range(len(json_data['train'])):
+    print("Training Output Grid ")
+    solve(json_data['train'][i]['input'])#Specifying elements of the json file to apply solve method to
+    print('\n')
+    
+for i in range(len(json_data['test'])):
+    print("Testing Output Grid ")
+    solve(json_data['test'][i]['input'])
+    print('\n')
