@@ -24,26 +24,28 @@ def pattern(array):
     return(final_array)
     
     
-def solve(input_Json):
-    Output_GridArray = []
-    OutputGrid_ArrayLength = (len(input_Json)//2)
+def solve(Input_Grid):
+    Input_Grid = Input_Grid[0] #This is the only grid row within the list of grids
+    Output_Grid = []
+    OutputGrid_Length = (len(Input_Grid)//2)
 
-    for x in range(OutputGrid_ArrayLength):
+    for x in range(OutputGrid_Length):
         Output_GridRow = []
-        Output_GridArray.append(Output_GridRow)
+        Output_Grid.append(Output_GridRow)
     #print(Output_GridArray)
     
     #Mapping from input grid to output grid
-    Output_GridArray[0] = input_Json #
+    Output_Grid[0] = Input_Grid #
 
     #This piece appplies "pattern" to each element of Output_GridArray except for Output_GridArray[0].
+
     i=0
-    for i in range(len(Output_GridArray)):
-        if Output_GridArray[i]!=input_Json:
-            Output_GridArray[i] = pattern(Output_GridArray[i-1]) #Here the "pattern" method defined above is used to calculate elements of output grid
+    for i in range(len(Output_Grid)):
+        if Output_Grid[i]!=Input_Grid:
+            Output_Grid[i] = pattern(Output_Grid[i-1]) #Here the "pattern" method defined above is used to calculate elements of output grid
             i+=1
-    print("Solved Output Grid = ",Output_GridArray )
-    return(Output_GridArray)
+    print("Solved Output Grid = ",Output_Grid )
+    return(Output_Grid)
 
 #Training Data
 solve([1,1,0,0,0,0])
