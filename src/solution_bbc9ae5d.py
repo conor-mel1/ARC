@@ -1,7 +1,9 @@
 '''
 @author: conor
 '''
-import numpy as np
+import json
+import sys
+
 
 
 def pattern(array):
@@ -47,15 +49,24 @@ def solve(Input_Grid):
     print("Solved Output Grid = ",Output_Grid )
     return(Output_Grid)
 
-#Training Data
-solve([1,1,0,0,0,0])
-solve([2, 0, 0, 0, 0, 0, 0, 0])
-solve([5, 5, 5, 0, 0, 0, 0, 0, 0, 0])
-solve([8, 8, 8, 8, 0, 0])
-solve([7, 0, 0, 0, 0, 0])
-
-#Testing Data
-solve([1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+#Run the program by typing python solution_bbc9ae5d.py  \path to Json file
+if len(sys.argv) != 2:
+    print("usage:python solution_bbc9ae5d.py <input Json file>")
+    sys.exit(0)
+else:
+    input_file = sys.argv[1]
+    print("input_file", input_file)
+    
+with open(input_file) as json_file:
+    json_data = json.load(json_file)  
+    
+for i in range(len(json_data['train'])):
+    solve(json_data['train'][i]['input'])
+    print('\n')
+    
+for i in range(len(json_data['test'])):
+    solve(json_data['test'][i]['input'])
+    print('\n')
 
 
 
