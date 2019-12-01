@@ -21,7 +21,7 @@ if len(sys.argv) != 2:
     sys.exit(0)
 else:
     input_file = sys.argv[1] #This is the path to the file from the command line
-    print("input_file", input_file)
+    #print("input_file", input_file)
     
 with open(input_file) as json_file:
     json_data = json.load(json_file) #Loads json file into a json data structure in python 
