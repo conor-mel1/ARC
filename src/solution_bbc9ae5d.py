@@ -5,10 +5,7 @@ import json
 import sys
 
 
-"""
-This function takes in a python list as its input. For the first element in the list equal to 0, this
-function adds the non-zero number immediately preceding it to 0 and outputs this new list.
-"""
+
 def pattern(some_list):
     #This piece calculates the first n nonzero elements of an array
     initial_nonzero_elements = []
@@ -19,7 +16,7 @@ def pattern(some_list):
     #Way in which the patterned piece of each element of the output array is calculated
     patterned_piece = []
     for i in range(len(some_list)):
-        if list[i]==0:
+        if some_list[i]==0:
             new_list_input = some_list[i] + some_list[i-1]
             patterned_piece.append(new_list_input)
 
